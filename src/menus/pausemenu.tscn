@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menus/QuitButton.gd" type="Script" id=1]
+
+
+
+[node name="ColorRect" type="ColorRect"]
+margin_right = 196.0
+margin_bottom = 145.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -44.0
+margin_top = 10.0
+margin_right = 44.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Game Paused"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.0
+margin_top = -14.5
+margin_right = 71.0
+margin_bottom = 31.5
+size_flags_horizontal = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="Button" parent="HBoxContainer"]
+margin_right = 69.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="HBoxContainer"]
+margin_left = 79.0
+margin_right = 142.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+text = "Quit"
+script = ExtResource( 1 )
+[connection signal="button_up" from="HBoxContainer/QuitButton" to="HBoxContainer/QuitButton" method="_on_button_up"]

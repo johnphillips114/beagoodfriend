@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/menus/EasyButton.gd" type="Script" id=1]
+[ext_resource path="res://src/menus/HardButton.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -78.5
+margin_top = 10.0
+margin_right = 78.5
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Choose a Difficulty Level"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -20.0
+margin_right = 70.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EasyButton" type="Button" parent="ColorRect/HBoxContainer"]
+margin_right = 65.0
+margin_bottom = 40.0
+hint_tooltip = "Plants need to be watered once a day"
+size_flags_horizontal = 3
+text = "Easy"
+script = ExtResource( 1 )
+next_scene_path = "res://src/menus/introEasy.tscn"
+
+[node name="HardButton" type="Button" parent="ColorRect/HBoxContainer"]
+margin_left = 75.0
+margin_right = 140.0
+margin_bottom = 40.0
+hint_tooltip = "Dogs need to be fed twice a day"
+size_flags_horizontal = 3
+text = "Hard"
+script = ExtResource( 2 )
+next_scene_path = "res://src/menus/introHard.tscn"
+[connection signal="button_up" from="ColorRect/HBoxContainer/EasyButton" to="ColorRect/HBoxContainer/EasyButton" method="_on_button_up"]
+[connection signal="button_up" from="ColorRect/HBoxContainer/HardButton" to="ColorRect/HBoxContainer/HardButton" method="_on_button_up"]

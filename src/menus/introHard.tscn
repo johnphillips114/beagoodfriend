@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menus/introHard.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+next_scene_path = "res://src/levels/room2.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 2.0
+margin_top = 5.0
+margin_right = 310.0
+margin_bottom = 189.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hey dude,
+
+I'll be back from my vacay in 5 days.
+
+Thanks again for agreeing to look after Sammy. 
+It really means a lot to me : ) 
+
+He needs to be fed twice a day until I'm back. 
+Don't worry about walks, he's toilet trained.
+
+Thanks again, and see you when I get back!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="ColorRect"]
+margin_left = 166.0
+margin_top = 195.0
+margin_right = 315.0
+margin_bottom = 235.0
+text = "No worries, dude : )"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="ColorRect/Button" to="." method="_on_button_up"]

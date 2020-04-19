@@ -10,6 +10,7 @@ onready var last: Dictionary = PlayerData.last_watered_time
 onready var start: Dictionary = PlayerData.start_time
 
 var next_water_time = PlayerData.last_watered_time
+var ampm = "AM"
 
 
 func _ready() -> void:
@@ -51,6 +52,10 @@ func _on_Button_button_up() -> void:
 		next_water_time = PlayerData.last_watered_time
 		next_water_time["hour"]=PlayerData.last_watered_time["hour"]+12
 		msg_back.visible = true
-		msg_label.text = "Make sure to feed and pet \n Sammy again before %s:%s!" % [next_water_time['hour'], next_water_time['minute']]
+		if next_water_time['hour'] > 12:
+			ampm = "AM"
+		else:
+			ampm = "PM"
+		msg_label.text = "Make sure to feed and pet \n Sammy again before %s:%s %s!" % [next_water_time['hour']%12, next_water_time['minute'],ampm]
 	else:
 		feed_button.visible = false
